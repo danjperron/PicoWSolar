@@ -1,0 +1,6 @@
+#!/bin/bash
+scp pi@10.11.12.107:~/solar.txt /Users/danielperron/Desktop/projet/SOLAR/solar.txt
+python3 /Users/danielperron/Desktop/projet/SOLAR/extractxl.py
+#on windows use ->   start excel SOLAR.xlsx
+open /Users/danielperron/Desktop/projet/SOLAR/SOLAR.xlsx
+
