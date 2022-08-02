@@ -150,7 +150,7 @@ def connectMQTT():
 def publish(topic, value):
   #print(topic)
   #print(value)
-  pub_msg = "%5.2f" % value
+  pub_msg = "%5.3f" % value
   #print(topic,"  ",pub_msg)
   client.publish(topic, pub_msg)
   #print("publish Done")
@@ -166,6 +166,7 @@ except OSError as e:
 
 
 def getSensorsAndPublish():
+  global vsys
   # record time in nanosecond
   startConv_ms = time.ticks_ms()
   # end need to be 750ms after
@@ -173,7 +174,8 @@ def getSensorsAndPublish():
   # read cpu Temperature
   publish(secrets['pubtopicTempCPU'],readCpuTemperature())
   # read Vsys
-  publish(secrets['pubtopicVsys'], readVsys())
+  vsys = readVsys()
+  publish(secrets['pubtopicVsys'], vsys)
   # read solar
   publish(secrets['pubtopicVsolar'],readSolar())
   # read Hydro
@@ -205,7 +207,14 @@ try:
             wlan.active(False)
             wlan.deinit()
             time.sleep_ms(50)
-            machine.lightsleep(290000) # assume 10 sec for connecting
+            if vsys > 4.1 :
+                break
+            elif vsys > 4.0 :
+                machine.lightsleep(50000)
+            elif vsys > 3.6:
+                machine.lightsleep(110000)
+            else:
+                machine.lightsleep(290000) # assume 10 sec for connecting
             break
         else:
             time.sleep(10)
