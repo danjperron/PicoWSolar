@@ -15,7 +15,7 @@ format2 = 'hh:mm:ss'
 now = datetime.datetime.now()
 
 
-def TransferData(fileName,mask, ws, factor=1.0,valueoffset=17):
+def TransferData(fileName,mask, ws, factor=1.0):
     f = open(fileName)
     count = 1
     while(True):
@@ -30,11 +30,18 @@ def TransferData(fileName,mask, ws, factor=1.0,valueoffset=17):
         exceldate = datetime.datetime(thedate[0],thedate[1],thedate[2],0,0)
         exceldatetime = datetime.datetime(thedate[0],thedate[1],thedate[2],thetime[0],thetime[1],thetime[2])
         ndays = (now - exceldatetime).days
+        seconds = (now - exceldatetime).seconds
         #print(ndays)
         if ndays > 2:
             continue
+#        if ndays > 1:
+#           if seconds > (12 * 3600):
+#             continue
+            
         exceltime = datetime.time(thetime[0],thetime[1],thetime[2])
-        value = float(l[pos+valueoffset:])
+        pos = l.find('PicoW')
+        topicvalue = ' '.join(l[pos:].split()).split(' ')
+        value = float(topicvalue[1])
 
         ws.cell(row=count,column=1).value=exceldate
         ws.cell(row=count,column=1).number_format=format1
@@ -50,8 +57,8 @@ def TransferData(fileName,mask, ws, factor=1.0,valueoffset=17):
 
 TransferData(solarFile,"Vsys",wb['vSys'])
 TransferData(solarFile,"Vsolar",wb['vSolar'],1.08)
-TransferData(solarFile,"temp ",wb['ds18b20'],valueoffset=16)
-TransferData(solarFile,"tempCPU",wb['cpu'],valueoffset=18)
+TransferData(solarFile,"temp ",wb['ds18b20'])
+TransferData(solarFile,"tempCPU",wb['cpu'])
 TransferData(solarFile,"Vhydro",wb['vHydro'])
 wb.save(ExcelFile)
 wb.close()
