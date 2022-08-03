@@ -29,4 +29,4 @@ Description of the file,
 - getsolar          Bash shell to transfer the latest data and display the chart on excel. Small change needs for window .bat file.
 - picowsolar.fzz    This is Fritzing schema
 - picowsolar_schema.jpg  Schema
-- STL folder contains all stl of the 3D case.
+- STL folder contains all stl of the 3D case.  Made with tinkercad  <a href="https://www.tinkercad.com/things/b1r0aMqMbmD-picowsolar">Tinkercad picow_solar</a>
