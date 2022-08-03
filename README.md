@@ -6,7 +6,7 @@ This is a PicoW with a 3.7V lipo battery charged by two old solar cells (2.6V ma
 I modified the TP4056 charger by replacing the TP4056 I.C. with a low drop diode (~0.2V) on low current.
 <img src="tp4056mod2.jpg" height=320>
 
-Data are sent by MQTT to a mosquitto server go to light sleep. The running cycle depends of the battery Voltage  from 1 to 5 minutes. Right now a minute cycle will discharge the battery even in full sun. This is a good way to be sure that I will never overcharged the battery.
+Data are sent by MQTT to a mosquitto server and after it goes to light sleep. The running cycle depends of the battery Voltage  from 1 to 5 minutes. Right now a minute cycle will discharge the battery even in full sun. This is a good way to be sure that I will never overcharged the battery.
 
 
 The system publish 5 topics which are,
@@ -29,4 +29,4 @@ Description of the file,
 - getsolar          Bash shell to transfer the latest data and display the chart on excel. Small change needs for window .bat file.
 - picowsolar.fzz    This is Fritzing schema
 - picowsolar_schema.jpg  Schema
-- STL folder contains all stl of the 3D case.  Made with tinkercad  <a href="https://www.tinkercad.com/things/b1r0aMqMbmD-picowsolar">Tinkercad picow_solar</a>
+- STL folder contains all stl of the 3D case.  Made with tinkercad  <a href="https://www.tinkercad.com/things/b1r0aMqMbmD-picowsolar">picow_solar</a>
