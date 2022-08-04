@@ -31,3 +31,4 @@ Description of the file,
 - picowsolar_schema.jpg  Schema
 - STL folder contains all stl of the 3D case.  Made with tinkercad  <a href="https://www.tinkercad.com/things/b1r0aMqMbmD-picowsolar">picow_solar</a>
 - flow.json         NodeRed flow export . Include Voltage, Temperature and moist gauge plus daily and weekly chart.
+                    N.B. you need the dashboard module for nodered.
