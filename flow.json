@@ -1,0 +1,1023 @@
+[
+    {
+        "id": "4100f26aac63d246",
+        "type": "tab",
+        "label": "jardin",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "23dbe5f24a082f16",
+        "type": "mqtt in",
+        "z": "4100f26aac63d246",
+        "name": "Vsys",
+        "topic": "PicoW/Vsys",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "adf8529c6d2d149a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 60,
+        "wires": [
+            [
+                "f795e3bdd077c42f"
+            ]
+        ]
+    },
+    {
+        "id": "f795e3bdd077c42f",
+        "type": "function",
+        "z": "4100f26aac63d246",
+        "name": "",
+        "func": "p= Number(msg.payload);\n//if(isNaN(p))\n//    return null;\nmsg.payload =p;\nmsg.topic=\"Vsys\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 60,
+        "wires": [
+            [
+                "b1e97678eb6d1aa8",
+                "b5829a1b36f67423",
+                "6f578a63eb9560e7"
+            ]
+        ]
+    },
+    {
+        "id": "b1e97678eb6d1aa8",
+        "type": "ui_gauge",
+        "z": "4100f26aac63d246",
+        "name": "Vsys",
+        "group": "0ee67a3d379a75d7",
+        "order": 2,
+        "width": 5,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Vsys",
+        "label": "V",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "4.5",
+        "colors": [
+            "#b30012",
+            "#00ff00",
+            "#fffc41"
+        ],
+        "seg1": "3.5",
+        "seg2": "4.0",
+        "className": "",
+        "x": 660,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "b5829a1b36f67423",
+        "type": "ui_chart",
+        "z": "4100f26aac63d246",
+        "name": "",
+        "group": "0ee67a3d379a75d7",
+        "order": 16,
+        "width": 10,
+        "height": 8,
+        "label": "Tableau quotidien",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "3",
+        "ymax": "4.5",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 510,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "inputLabels": [
+            "Heure"
+        ],
+        "outputLabels": [
+            "Temp(°C)"
+        ]
+    },
+    {
+        "id": "6f578a63eb9560e7",
+        "type": "ui_chart",
+        "z": "4100f26aac63d246",
+        "name": "",
+        "group": "0ee67a3d379a75d7",
+        "order": 17,
+        "width": 10,
+        "height": 8,
+        "label": "Tableau hebdomadaire",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 520,
+        "y": 220,
+        "wires": [
+            []
+        ],
+        "inputLabels": [
+            "Semaine"
+        ],
+        "outputLabels": [
+            "Temp(°C)"
+        ]
+    },
+    {
+        "id": "93f425967786d297",
+        "type": "mqtt in",
+        "z": "4100f26aac63d246",
+        "name": "Vsolar",
+        "topic": "PicoW/Vsolar",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "adf8529c6d2d149a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 320,
+        "wires": [
+            [
+                "ff871727a2a973bb"
+            ]
+        ]
+    },
+    {
+        "id": "ff871727a2a973bb",
+        "type": "function",
+        "z": "4100f26aac63d246",
+        "name": "",
+        "func": "p= Number(msg.payload);\n//if(isNaN(p))\n//    return null;\nmsg.payload =p * 1.08;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 320,
+        "wires": [
+            [
+                "4ca92112b4014443",
+                "b5829a1b36f67423",
+                "6f578a63eb9560e7"
+            ]
+        ]
+    },
+    {
+        "id": "4ca92112b4014443",
+        "type": "ui_gauge",
+        "z": "4100f26aac63d246",
+        "name": "Solaire",
+        "group": "0ee67a3d379a75d7",
+        "order": 4,
+        "width": 5,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Vsolar",
+        "label": "V",
+        "format": "{{value| number:3}}",
+        "min": 0,
+        "max": "4.5",
+        "colors": [
+            "#b30012",
+            "#00ff00",
+            "#fffc41"
+        ],
+        "seg1": "3.5",
+        "seg2": "4.0",
+        "className": "",
+        "x": 660,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "ab39359c508ed070",
+        "type": "mqtt in",
+        "z": "4100f26aac63d246",
+        "name": "temp",
+        "topic": "PicoW/temp",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "adf8529c6d2d149a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 440,
+        "wires": [
+            [
+                "f779c54bd10e64d4"
+            ]
+        ]
+    },
+    {
+        "id": "f779c54bd10e64d4",
+        "type": "function",
+        "z": "4100f26aac63d246",
+        "name": "",
+        "func": "p= Number(msg.payload);\n//if(isNaN(p))\n//    return null;\nmsg.payload =p;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 440,
+        "wires": [
+            [
+                "0c1ab8b951ea477e",
+                "079756016b83a5f1",
+                "2aa2e86fa7839c7c"
+            ]
+        ]
+    },
+    {
+        "id": "0c1ab8b951ea477e",
+        "type": "ui_gauge",
+        "z": "4100f26aac63d246",
+        "name": "temperature",
+        "group": "6de5479695531e70",
+        "order": 2,
+        "width": 5,
+        "height": 4,
+        "gtype": "gage",
+        "title": "temperature",
+        "label": "°C",
+        "format": "{{value| number:2}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#008cb4",
+            "#00ff00",
+            "#e32400"
+        ],
+        "seg1": "10",
+        "seg2": "35",
+        "className": "",
+        "x": 680,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "079756016b83a5f1",
+        "type": "ui_chart",
+        "z": "4100f26aac63d246",
+        "name": "",
+        "group": "6de5479695531e70",
+        "order": 17,
+        "width": 10,
+        "height": 8,
+        "label": "Tableau quotidien",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 510,
+        "y": 520,
+        "wires": [
+            []
+        ],
+        "inputLabels": [
+            "Heure"
+        ],
+        "outputLabels": [
+            "Temp(°C)"
+        ]
+    },
+    {
+        "id": "2aa2e86fa7839c7c",
+        "type": "ui_chart",
+        "z": "4100f26aac63d246",
+        "name": "",
+        "group": "6de5479695531e70",
+        "order": 16,
+        "width": 10,
+        "height": 8,
+        "label": "Tableau hebdomadaire",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "3",
+        "ymax": "4.5",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 520,
+        "y": 600,
+        "wires": [
+            []
+        ],
+        "inputLabels": [
+            "Semaine"
+        ],
+        "outputLabels": [
+            "Temp(°C)"
+        ]
+    },
+    {
+        "id": "274620ed3973c79b",
+        "type": "mqtt in",
+        "z": "4100f26aac63d246",
+        "name": "cpu",
+        "topic": "PicoW/tempCPU",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "adf8529c6d2d149a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 700,
+        "wires": [
+            [
+                "a0be784f6e27ab5f"
+            ]
+        ]
+    },
+    {
+        "id": "a0be784f6e27ab5f",
+        "type": "function",
+        "z": "4100f26aac63d246",
+        "name": "",
+        "func": "p= Number(msg.payload);\n//if(isNaN(p))\n//    return null;\nmsg.payload =p;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 700,
+        "wires": [
+            [
+                "b2e0fd53aa126516",
+                "079756016b83a5f1",
+                "2aa2e86fa7839c7c"
+            ]
+        ]
+    },
+    {
+        "id": "b2e0fd53aa126516",
+        "type": "ui_gauge",
+        "z": "4100f26aac63d246",
+        "name": "CPU",
+        "group": "6de5479695531e70",
+        "order": 4,
+        "width": 5,
+        "height": 4,
+        "gtype": "gage",
+        "title": "cpu",
+        "label": "°C",
+        "format": "{{value|number:2}}",
+        "min": "10",
+        "max": "60",
+        "colors": [
+            "#006d8f",
+            "#00ff00",
+            "#fffc41"
+        ],
+        "seg1": "20",
+        "seg2": "50",
+        "className": "",
+        "x": 660,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "9bbae8521352030b",
+        "type": "mqtt in",
+        "z": "4100f26aac63d246",
+        "name": "Moist",
+        "topic": "PicoW/Vhydro",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "adf8529c6d2d149a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 840,
+        "wires": [
+            [
+                "c14e9d90fd830cad"
+            ]
+        ]
+    },
+    {
+        "id": "c14e9d90fd830cad",
+        "type": "function",
+        "z": "4100f26aac63d246",
+        "name": "",
+        "func": "p= Number(msg.payload);\n//if(isNaN(p))\n//    return null;\n// convert volt in % humidity\nv = (p * -89.84725966) + 180.8625337;\nif(v<0) \n   v = 0.0\nif(v>100)\n   v = 100.0\nmsg.payload =v;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 840,
+        "wires": [
+            [
+                "315c9f033ca976f7",
+                "b667c79f0bc1afb6",
+                "8ee6cfe349922cb4"
+            ]
+        ]
+    },
+    {
+        "id": "315c9f033ca976f7",
+        "type": "ui_gauge",
+        "z": "4100f26aac63d246",
+        "name": "moisture",
+        "group": "37d6a4cf095324ee",
+        "order": 1,
+        "width": 5,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Humidité",
+        "label": "%",
+        "format": "{{value| number:1}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ff6a00",
+            "#00ff00",
+            "#004d65"
+        ],
+        "seg1": "25",
+        "seg2": "60",
+        "className": "",
+        "x": 670,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "b667c79f0bc1afb6",
+        "type": "ui_chart",
+        "z": "4100f26aac63d246",
+        "name": "",
+        "group": "37d6a4cf095324ee",
+        "order": 7,
+        "width": 10,
+        "height": 8,
+        "label": "Tableau quotidien",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 510,
+        "y": 920,
+        "wires": [
+            []
+        ],
+        "inputLabels": [
+            "Heure"
+        ],
+        "outputLabels": [
+            "Temp(°C)"
+        ]
+    },
+    {
+        "id": "8ee6cfe349922cb4",
+        "type": "ui_chart",
+        "z": "4100f26aac63d246",
+        "name": "",
+        "group": "37d6a4cf095324ee",
+        "order": 6,
+        "width": 10,
+        "height": 8,
+        "label": "Tableau hebdomadaire",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 520,
+        "y": 1000,
+        "wires": [
+            []
+        ],
+        "inputLabels": [
+            "Semaine"
+        ],
+        "outputLabels": [
+            "Temp(°C)"
+        ]
+    },
+    {
+        "id": "e698d49af8caa9bc",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "0ee67a3d379a75d7",
+        "order": 1,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "19333d16b0641c48",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "0ee67a3d379a75d7",
+        "order": 3,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "4b9956b2b862a059",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "0ee67a3d379a75d7",
+        "order": 5,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "adbccd7f22a00ec7",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "0ee67a3d379a75d7",
+        "order": 6,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "6324b555c216a2ed",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "0ee67a3d379a75d7",
+        "order": 7,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "58c305b2729cc2a5",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "0ee67a3d379a75d7",
+        "order": 8,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "c6bafbb49759820c",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "0ee67a3d379a75d7",
+        "order": 9,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "863d7a68766a39be",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "0ee67a3d379a75d7",
+        "order": 10,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "ed30cddf355b271b",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "0ee67a3d379a75d7",
+        "order": 11,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "70b1cba841d095b8",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "0ee67a3d379a75d7",
+        "order": 12,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "23d27d0246c4466c",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "0ee67a3d379a75d7",
+        "order": 13,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "c7457eb1b762d442",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "0ee67a3d379a75d7",
+        "order": 14,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "b58e4d6884ae0e33",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "0ee67a3d379a75d7",
+        "order": 15,
+        "width": 20,
+        "height": 1
+    },
+    {
+        "id": "8e4efb9bc2de8273",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "6de5479695531e70",
+        "order": 1,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "dafe706ed92b1eac",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "6de5479695531e70",
+        "order": 3,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "708fc8d0c37833cb",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "6de5479695531e70",
+        "order": 5,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "176a183657b38888",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "6de5479695531e70",
+        "order": 6,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "8e0138ed2e4b591c",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "6de5479695531e70",
+        "order": 7,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "7688b4be1a6b2b04",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "6de5479695531e70",
+        "order": 8,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "f519e080913fd451",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "6de5479695531e70",
+        "order": 9,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "9943386264cd01e6",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "6de5479695531e70",
+        "order": 10,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "5687f6992c810eee",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "6de5479695531e70",
+        "order": 11,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "5213c6361cde1f23",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "6de5479695531e70",
+        "order": 12,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "6dbe82cbd20fb251",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "6de5479695531e70",
+        "order": 13,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "8632c18b419a87cb",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "6de5479695531e70",
+        "order": 14,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "2ebdedd4b84d4ea2",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "6de5479695531e70",
+        "order": 15,
+        "width": 20,
+        "height": 1
+    },
+    {
+        "id": "cd7fc8f3b6463ec8",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "37d6a4cf095324ee",
+        "order": 2,
+        "width": 15,
+        "height": 1
+    },
+    {
+        "id": "174dbed9cf6675eb",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "37d6a4cf095324ee",
+        "order": 3,
+        "width": 15,
+        "height": 1
+    },
+    {
+        "id": "de29e505084166c2",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "37d6a4cf095324ee",
+        "order": 4,
+        "width": 15,
+        "height": 1
+    },
+    {
+        "id": "849e24e0e6e2ae6d",
+        "type": "ui_spacer",
+        "z": "4100f26aac63d246",
+        "name": "spacer",
+        "group": "37d6a4cf095324ee",
+        "order": 5,
+        "width": 15,
+        "height": 1
+    },
+    {
+        "id": "adf8529c6d2d149a",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "pihome.local",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "0ee67a3d379a75d7",
+        "type": "ui_group",
+        "name": "Tension",
+        "tab": "d53d14cdc1a3f197",
+        "order": 1,
+        "disp": true,
+        "width": "20",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6de5479695531e70",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "d53d14cdc1a3f197",
+        "order": 2,
+        "disp": true,
+        "width": "20",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "37d6a4cf095324ee",
+        "type": "ui_group",
+        "name": "Humidité",
+        "tab": "d53d14cdc1a3f197",
+        "order": 3,
+        "disp": true,
+        "width": 20,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d53d14cdc1a3f197",
+        "type": "ui_tab",
+        "name": "jardin",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
