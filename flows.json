@@ -72,7 +72,7 @@
         "seg1": "3.5",
         "seg2": "4.0",
         "className": "",
-        "x": 660,
+        "x": 730,
         "y": 60,
         "wires": []
     },
@@ -114,7 +114,7 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 510,
+        "x": 770,
         "y": 140,
         "wires": [
             []
@@ -164,7 +164,7 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 520,
+        "x": 780,
         "y": 220,
         "wires": [
             []
@@ -202,7 +202,7 @@
         "type": "function",
         "z": "4100f26aac63d246",
         "name": "",
-        "func": "p= Number(msg.payload);\n//if(isNaN(p))\n//    return null;\nmsg.payload =p * 1.08;\nreturn msg;\n",
+        "func": "p= Number(msg.payload);\n//if(isNaN(p))\n//    return null;\nmsg.topic=\"Solaire\";\nmsg.payload =p * 1.08;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -228,7 +228,7 @@
         "width": 5,
         "height": 4,
         "gtype": "gage",
-        "title": "Vsolar",
+        "title": "Solaire",
         "label": "V",
         "format": "{{value| number:3}}",
         "min": 0,
@@ -241,7 +241,7 @@
         "seg1": "3.5",
         "seg2": "4.0",
         "className": "",
-        "x": 660,
+        "x": 730,
         "y": 320,
         "wires": []
     },
@@ -271,7 +271,7 @@
         "type": "function",
         "z": "4100f26aac63d246",
         "name": "",
-        "func": "p= Number(msg.payload);\n//if(isNaN(p))\n//    return null;\nmsg.payload =p;\nreturn msg;\n",
+        "func": "p= Number(msg.payload);\n//if(isNaN(p))\n//    return null;\nmsg.payload =p;\nmsg.topic=\"sol\";\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -297,7 +297,7 @@
         "width": 5,
         "height": 4,
         "gtype": "gage",
-        "title": "temperature",
+        "title": "température du sol",
         "label": "°C",
         "format": "{{value| number:2}}",
         "min": 0,
@@ -310,7 +310,7 @@
         "seg1": "10",
         "seg2": "35",
         "className": "",
-        "x": 680,
+        "x": 750,
         "y": 440,
         "wires": []
     },
@@ -352,8 +352,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 510,
-        "y": 520,
+        "x": 770,
+        "y": 540,
         "wires": [
             []
         ],
@@ -402,7 +402,7 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 520,
+        "x": 780,
         "y": 600,
         "wires": [
             []
@@ -440,7 +440,7 @@
         "type": "function",
         "z": "4100f26aac63d246",
         "name": "",
-        "func": "p= Number(msg.payload);\n//if(isNaN(p))\n//    return null;\nmsg.payload =p;\nreturn msg;\n",
+        "func": "p= Number(msg.payload);\n//if(isNaN(p))\n//    return null;\nmsg.payload =p;\nmsg.topic=\"CPU\";\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -479,7 +479,7 @@
         "seg1": "20",
         "seg2": "50",
         "className": "",
-        "x": 660,
+        "x": 730,
         "y": 700,
         "wires": []
     },
@@ -509,7 +509,7 @@
         "type": "function",
         "z": "4100f26aac63d246",
         "name": "",
-        "func": "p= Number(msg.payload);\n//if(isNaN(p))\n//    return null;\n// convert volt in % humidity\nv = (p * -89.84725966) + 180.8625337;\nif(v<0) \n   v = 0.0\nif(v>100)\n   v = 100.0\nmsg.payload =v;\nreturn msg;\n",
+        "func": "p= Number(msg.payload);\n//if(isNaN(p))\n//    return null;\n// convert volt in % humidity\nv = (p * -89.84725966) + 180.8625337;\nif(v<0) \n   v = 0.0\nif(v>100)\n   v = 100.0\nmsg.topic=\"sol humidité\";\nmsg.payload =v;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -535,7 +535,7 @@
         "width": 5,
         "height": 4,
         "gtype": "gage",
-        "title": "Humidité",
+        "title": "Humidité du sol",
         "label": "%",
         "format": "{{value| number:1}}",
         "min": 0,
@@ -548,7 +548,7 @@
         "seg1": "25",
         "seg2": "60",
         "className": "",
-        "x": 670,
+        "x": 740,
         "y": 840,
         "wires": []
     },
@@ -590,8 +590,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 510,
-        "y": 920,
+        "x": 770,
+        "y": 980,
         "wires": [
             []
         ],
@@ -640,8 +640,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 520,
-        "y": 1000,
+        "x": 780,
+        "y": 1040,
         "wires": [
             []
         ],
@@ -650,6 +650,58 @@
         ],
         "outputLabels": [
             "Temp(°C)"
+        ]
+    },
+    {
+        "id": "c60ef02e756114d9",
+        "type": "inject",
+        "z": "4100f26aac63d246",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 1140,
+        "wires": [
+            [
+                "d8e80b95c8bfee5f"
+            ]
+        ]
+    },
+    {
+        "id": "d8e80b95c8bfee5f",
+        "type": "function",
+        "z": "4100f26aac63d246",
+        "name": "Reset",
+        "func": "\nmsg.payload=[];\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 1140,
+        "wires": [
+            [
+                "8ee6cfe349922cb4",
+                "b667c79f0bc1afb6",
+                "2aa2e86fa7839c7c",
+                "079756016b83a5f1",
+                "6f578a63eb9560e7",
+                "b5829a1b36f67423"
+            ]
         ]
     },
     {
@@ -992,7 +1044,7 @@
     {
         "id": "6de5479695531e70",
         "type": "ui_group",
-        "name": "Temperature",
+        "name": "Température",
         "tab": "d53d14cdc1a3f197",
         "order": 2,
         "disp": true,
