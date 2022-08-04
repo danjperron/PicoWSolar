@@ -30,3 +30,4 @@ Description of the file,
 - picowsolar.fzz    This is Fritzing schema
 - picowsolar_schema.jpg  Schema
 - STL folder contains all stl of the 3D case.  Made with tinkercad  <a href="https://www.tinkercad.com/things/b1r0aMqMbmD-picowsolar">picow_solar</a>
+- flow.json         NodeRed flow export . Include Voltage, Temperature and moist gauge plus dayly and weekly chart.
