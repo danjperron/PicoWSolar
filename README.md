@@ -13,8 +13,13 @@ The system publish 5 topics which are,
 - Vsys. The Lipo battery Voltage.
 - Vsolar. The solar cell voltage.
 - tempCPU. The internal temperature of the cpu.
-- temp. The ds18B20 temperature.
-- vHydro. The Voltage of the moist sensor.
+- DS18B20. The ds18B20 temperature. Could multiple sensor on same pin.
+- Vmoist. The Voltage of the moist sensor two possible (Vmoist_0 and Vmoist_1).
+
+On the new version it is possible to enable the watchdog. On preliminary test you should disable it. Because of the watch dog the
+lightsleep can't be more than 8 seconds, this is why I made wd_lightsleep() which split the lightsleep in 5 seconds step to prevent
+watchdog reboot.
+
 
 Before I do the nodered page I just made simple scripts to check if everything is ok
 - On the MQTT broker I ran a script all the times to record all topics from the PicoW with time.<br>
@@ -24,7 +29,7 @@ Before I do the nodered page I just made simple scripts to check if everything i
 
 Description of the file,
 - mqtt_ds18B20.py   Main python script store in the pico. You need to change it to main.py when every is working.
-- secrets.py.       Dictionnary which old all info about the wifi and the topics namea. Needs to be store in pico.
+- <strike>secrets.py.       Dictionnary which old all info about the wifi and the topics namea. Needs to be store in pico.</strike>
 - extractxl.py      Python script to feed data into the excel workbook. (Python script on my computer)
 - getsolar          Bash shell to transfer the latest data and display the chart on excel. Small change needs for window .bat file.
 - picowsolar.fzz    This is Fritzing schema
