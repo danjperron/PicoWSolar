@@ -56,9 +56,9 @@ def TransferData(fileName,mask, ws, factor=1.0):
     
 
 TransferData(solarFile,"Vsys",wb['vSys'])
-TransferData(solarFile,"Vsolar",wb['vSolar'],1.08)
-TransferData(solarFile,"temp ",wb['ds18b20'])
+TransferData(solarFile,"Vsolar",wb['vSolar'])
+TransferData(solarFile,"DS18B20_0 ",wb['ds18b20'])
 TransferData(solarFile,"tempCPU",wb['cpu'])
-TransferData(solarFile,"Vhydro",wb['vHydro'])
+TransferData(solarFile,"Vmoist_0",wb['vHydro'])
 wb.save(ExcelFile)
 wb.close()
