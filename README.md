@@ -15,6 +15,11 @@ The system publish 5 topics which are,
 - tempCPU. The internal temperature of the cpu.
 - DS18B20. The ds18B20 temperature. Could multiple sensor on same pin.
 - Vmoist. The Voltage of the moist sensor two possible (Vmoist_0 and Vmoist_1).
+- bmeT,bmeP,bmeH.  bme280 temperature, pression and humidity.
+
+The bme280 sensor was added. It is necessary to install the library from https://github.com/SebastianRoll/mpy_bme280_esp8266.
+The adafruit bme280 i2c address is 0x77.
+
 
 On the new version it is possible to enable the watchdog. On preliminary test you should disable it. Because of the watchdog the
 lightsleep can't be more than 8.3 seconds, this is we have wd_lightsleep() which split the lightsleep in 5 seconds.
@@ -35,3 +40,5 @@ Description of the file,
 - STL folder contains all stl of the 3D case.  Made with tinkercad  <a href="https://www.tinkercad.com/things/b1r0aMqMbmD-picowsolar">picow_solar</a>
 - flows.json         NodeRed flow export . Include Voltage, Temperature and moist gauge plus daily and weekly chart.
                     N.B. you need the dashboard module for nodered.
+
+Before you change the file mqtt_ds18B20.py to main.py  please verify if everything is ok. First disable the watchdog  and change ds18B20 sensors id.
