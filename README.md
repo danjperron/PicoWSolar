@@ -16,10 +16,8 @@ The system publish 5 topics which are,
 - DS18B20. The ds18B20 temperature. Could multiple sensor on same pin.
 - Vmoist. The Voltage of the moist sensor two possible (Vmoist_0 and Vmoist_1).
 
-On the new version it is possible to enable the watchdog. On preliminary test you should disable it. Because of the watch dog the
-lightsleep can't be more than 8 seconds, this is why I made wd_lightsleep() which split the lightsleep in 5 seconds step to prevent
-watchdog reboot.
-
+On the new version it is possible to enable the watchdog. On preliminary test you should disable it. Because of the watchdog the
+lightsleep can't be more than 8.3 seconds, this is we have wd_lightsleep() which split the lightsleep in 5 seconds.
 
 Before I do the nodered page I just made simple scripts to check if everything is ok
 - On the MQTT broker I ran a script all the times to record all topics from the PicoW with time.<br>
