@@ -419,7 +419,7 @@
         "type": "mqtt in",
         "z": "4100f26aac63d246",
         "name": "cpu",
-        "topic": "PicoW/tempCPU",
+        "topic": "PicoW/TempCPU",
         "qos": "2",
         "datatype": "auto",
         "broker": "adf8529c6d2d149a",
