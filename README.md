@@ -40,6 +40,6 @@ Description of the file,
 - STL folder contains all stl of the 3D case.  Made with tinkercad  <a href="https://www.tinkercad.com/things/b1r0aMqMbmD-picowsolar">picow_solar</a>
 - flows.json         NodeRed flow export . Include Voltage, Temperature and moist gauge plus daily and weekly chart.
                     N.B. you need the dashboard module for nodered.<br>
-- flows2.json        NodeRed flow export version with bme sensor.
-<img src="temperature.jpg" width=480>&nbsp;&nbsp;&nbsp;<img src="tension.jpg" width=480><br>
+- flows2.json        NodeRed flow export version with bme sensor.<br>
+<img src="temperature.jpg" width=480>&nbsp;&nbsp;&nbsp;<img src="tension.jpg" width=480><br><br><br>
 Before you change the file mqtt_ds18B20.py to main.py  please verify if everything is ok. First disable the watchdog  and change ds18B20 sensors id.
