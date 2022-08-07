@@ -488,7 +488,7 @@
         "type": "mqtt in",
         "z": "a06c49eaf75bea17",
         "name": "Moist",
-        "topic": "PicoW2/VMoist_0",
+        "topic": "PicoW2/Vomist_0",
         "qos": "2",
         "datatype": "auto",
         "broker": "adf8529c6d2d149a",
