@@ -7,12 +7,15 @@ import sys
 from onewire import OneWire
 from ds18x20 import DS18X20
 from umqtt.simple import MQTTClient
-import bme280       #importing BME280 library
+import bme280       #importing BME280 library remark if not used
+
+#umqtt.simple could be imported from Thonny.
+
 
 
 #network definition
-wifi_essid = "etoile"
-wifi_password = "04021993060719902905196610"
+wifi_essid = "your essid"
+wifi_password = "your password"
 
 
 # define IP,mask and gateway if IP is static
