@@ -6,6 +6,8 @@ This is a PicoW with a 3.7V lipo battery charged by two old solar cells (2.6V ma
 I modified the TP4056 charger by replacing the TP4056 I.C. with a low drop diode (~0.2V) on low current.
 <img src="tp4056mod2.jpg" height=320>
 
+N.B. you don't need to modiify the TP4056. I did that because my solar cells were not powerfull enough but new ones I bought were good enough.
+
 Data are sent by MQTT to a mosquitto server and after it goes to light sleep. The running cycle depends of the battery Voltage  from 1 to 5 minutes. Right now a minute cycle will discharge the battery even in full sun. This is a good way to be sure that I will never overcharged the battery.
 
 
