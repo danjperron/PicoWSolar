@@ -45,3 +45,5 @@ Description of the file,
 - flows2.json        NodeRed flow export version with bme sensor.<br>
 <img src="temperature.jpg" width=480>&nbsp;&nbsp;&nbsp;<img src="tension.jpg" width=480><br><br><br>
 Before you change the file mqtt_ds18B20.py to main.py  please verify if everything is ok. First disable the watchdog  and change ds18B20 sensors id.
+
+N.B. Most recent 2023 firmware don't have the lightsleep working very well. Please use the uf2 incuded in this github
