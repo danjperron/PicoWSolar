@@ -93,7 +93,8 @@ if  sw.value() == 0:
 
 #### WATCH DOG 
 # set maximum wachtdog 8.3s  ( 2**24 -1)/2
-wdt = machine.WDT(timeout=8300000)
+if WatchDog_Enable:
+    wdt = machine.WDT(timeout=8300)
 
 # define lightsleep with watch dog limits
 # because we implemented wachtdog we need to
