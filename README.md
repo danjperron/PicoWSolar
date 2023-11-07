@@ -8,7 +8,7 @@ I modified the TP4056 charger by replacing the TP4056 I.C. with a low drop diode
 
 N.B. you don't need to modiify the TP4056. I did that because my solar cells were not powerfull enough but new ones I bought were good enough.
 
-Data are sent by MQTT to a mosquitto server and after it goes to light sleep. The running cycle depends of the battery Voltage  from 1 to 5 minutes. Right now a minute cycle will discharge the battery even in full sun. This is a good way to be sure that I will never overcharged the battery.
+Data are sent by MQTT to a mosquitto server and after it goes to light sleep. The running cycle depends of the battery Voltage  from 1 to 5 minutes. Right now a minute cycle will discharge the battery even in full sun. This is a good way to be sure that it will never overcharged the battery.
 
 
 The system publish 5 topics which are,
@@ -24,7 +24,7 @@ The adafruit bme280 i2c address is 0x77.
 
 
 On the new version it is possible to enable the watchdog. On preliminary test you should disable it. Because of the watchdog the
-lightsleep can't be more than 8.3 seconds, this is we have wd_lightsleep() which split the lightsleep in 5 seconds.
+lightsleep can't be more than 8.3 seconds, this is why we have wd_lightsleep() which split the lightsleep in 5 seconds.
 
 Before I do the nodered page I just made simple scripts to check if everything is ok
 - On the MQTT broker I ran a script all the times to record all topics from the PicoW with time.<br>
