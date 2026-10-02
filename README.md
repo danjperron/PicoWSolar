@@ -1,6 +1,8 @@
 # PicoWSolar
 <img src="solar_box1.jpg" height=320><img src="solar_box2.jpg" height=320>
 
+
+*** october 2026 I added a second picow with nodered valve control.<br><br>
 This is a PicoW with a 3.7V lipo battery charged by two old solar cells (2.6V max open and ~25ma short).
 
 I modified the TP4056 charger by replacing the TP4056 I.C. with a low drop diode (~0.2V) on low current.
